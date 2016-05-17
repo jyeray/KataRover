@@ -1,20 +1,27 @@
+import Positions.NorthPosition;
+import Positions.PositionInterface;
+
 public class Rover {
 
-    private Position position;
+    private PositionInterface position;
 
     public Rover() {
-        this.position = new Position(0, 0, new North());
+        this.position = new NorthPosition(0, 0);
     }
 
-    public Position getPosition() {
+    public PositionInterface getPosition() {
         return position;
     }
 
     public void turnLeft() {
-        position.turnLeft();
+        position = position.turnLeft();
     }
 
     public void turnRight() {
-        position.turnRight();
+        position = position.turnRight();
+    }
+
+    public void move() {
+
     }
 }

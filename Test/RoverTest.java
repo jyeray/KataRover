@@ -1,3 +1,4 @@
+import Positions.PositionInterface;
 import org.junit.*;
 import org.junit.Test;
 
@@ -6,7 +7,7 @@ public class RoverTest {
     @org.junit.Test
     public void test_start(){
         Rover rover = new Rover();
-        Position roverPosition = rover.getPosition();
+        PositionInterface roverPosition = rover.getPosition();
         Assert.assertEquals(roverPosition.getX(), 0);
         Assert.assertEquals(roverPosition.getY(), 0);
         Assert.assertEquals(roverPosition.getDirection(), 'N');
@@ -17,7 +18,7 @@ public class RoverTest {
     {
         Rover rover = new Rover();
         rover.turnLeft();
-        Position roverPosition = rover.getPosition();
+        PositionInterface roverPosition = rover.getPosition();
         Assert.assertEquals(roverPosition.getDirection(),'W');
 
         rover.turnLeft();
@@ -36,8 +37,8 @@ public class RoverTest {
     {
         Rover rover = new Rover();
         rover.turnRight();
-        Position roverPosition = rover.getPosition();
-        Assert.assertEquals(roverPosition.getDirection(),'E');
+        PositionInterface roverPosition = rover.getPosition();
+        Assert.assertEquals("test", roverPosition.getDirection(),'E');
 
         rover.turnRight();
         roverPosition = rover.getPosition();
@@ -48,5 +49,15 @@ public class RoverTest {
         rover.turnRight();
         roverPosition = rover.getPosition();
         Assert.assertEquals(roverPosition.getDirection(),'N');
+    }
+
+    @Test
+    public void testMove(){
+        Rover rover = new Rover();
+        rover.move();
+        PositionInterface roverPosition = rover.getPosition();
+        Assert.assertEquals(roverPosition.getX(), 0);
+        Assert.assertEquals(roverPosition.getY(), 1);
+        Assert.assertEquals(roverPosition.getDirection(), 'N');
     }
 }
