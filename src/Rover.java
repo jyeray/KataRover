@@ -13,4 +13,8 @@ public class Rover {
     public void turnLeft() {
         position.turnLeft();
     }
+
+    public void turnRight() {
+        position.turnRight();
+    }
 }

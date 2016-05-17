@@ -25,4 +25,8 @@ public class Position {
     public void turnLeft() {
         direction = direction.left();
     }
+
+    public void turnRight() {
+        direction = direction.right();
+    }
 }
