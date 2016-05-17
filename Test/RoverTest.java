@@ -5,7 +5,7 @@ import org.junit.Test;
 public class RoverTest {
 
     @org.junit.Test
-    public void test_start(){
+    public void testStart(){
         Rover rover = new Rover();
         PositionInterface roverPosition = rover.getPosition();
         Assert.assertEquals(roverPosition.getX(), 0);
@@ -14,7 +14,7 @@ public class RoverTest {
     }
 
     @Test
-    public void test_turn_left()
+    public void testTurnLeft()
     {
         Rover rover = new Rover();
         rover.turnLeft();
@@ -33,7 +33,7 @@ public class RoverTest {
     }
 
     @Test
-    public void test_turn_right()
+    public void testTurnRight()
     {
         Rover rover = new Rover();
         rover.turnRight();
@@ -52,12 +52,23 @@ public class RoverTest {
     }
 
     @Test
-    public void testMove(){
+    public void testMoveNorth(){
         Rover rover = new Rover();
         rover.move();
         PositionInterface roverPosition = rover.getPosition();
         Assert.assertEquals(roverPosition.getX(), 0);
         Assert.assertEquals(roverPosition.getY(), 1);
         Assert.assertEquals(roverPosition.getDirection(), 'N');
+    }
+
+    @Test
+    public void testMoveWestDintGoOut(){
+        Rover rover = new Rover();
+        rover.turnLeft();
+        rover.move();
+        PositionInterface roverPosition = rover.getPosition();
+        Assert.assertEquals(roverPosition.getX(), 10);
+        Assert.assertEquals(roverPosition.getY(), 0);
+        Assert.assertEquals(roverPosition.getDirection(), 'W');
     }
 }

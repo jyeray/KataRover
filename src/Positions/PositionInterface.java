@@ -6,4 +6,5 @@ public interface PositionInterface {
     char getDirection();
     PositionInterface turnLeft();
     PositionInterface turnRight();
+    void move();
 }

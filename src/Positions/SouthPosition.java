@@ -1,14 +1,19 @@
 package Positions;
 
+import java.util.HashMap;
+
 public class SouthPosition implements PositionInterface {
 
     private int x;
     private int y;
     private final char DIRECTION = 'S';
 
-    public SouthPosition(int x, int y) {
+    private static HashMap<Integer, Integer> GRID;
+
+    public SouthPosition(int x, int y, HashMap<Integer, Integer> GRID) {
         this.x = x;
         this.y = y;
+        this.GRID = GRID;
     }
 
     @Override
@@ -28,11 +33,17 @@ public class SouthPosition implements PositionInterface {
 
     @Override
     public PositionInterface turnLeft() {
-        return new EastPosition(x, y);
+        return new EastPosition(x, y, GRID);
     }
 
     @Override
     public PositionInterface turnRight() {
-        return new WestPosition(x, y);
+        return new WestPosition(x, y, GRID);
+    }
+
+    @Override
+    public void move() {
+        y--;
+        y = GRID.get(y);
     }
 }
