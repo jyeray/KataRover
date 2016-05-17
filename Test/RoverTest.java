@@ -1,14 +1,13 @@
-import org.junit.Assert;
-
-import static org.junit.Assert.*;
+import org.junit.*;
 
 public class RoverTest {
 
+    @org.junit.Test
     public void test_start(){
         Rover rover = new Rover();
         Position roverPosition = rover.getPosition();
-        Assert.assertEquals(Position.getX, 0);
-        Assert.assertEquals(Position.getY, 0);
-        Assert.assertEquals(Position.getDirection, 'N');
+        Assert.assertEquals(roverPosition.getX(), 0);
+        Assert.assertEquals(roverPosition.getY(), 0);
+        Assert.assertEquals(roverPosition.getDirection(), 'N');
     }
 }
