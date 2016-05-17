@@ -71,4 +71,29 @@ public class RoverTest {
         Assert.assertEquals(roverPosition.getY(), 0);
         Assert.assertEquals(roverPosition.getDirection(), 'W');
     }
+
+    @Test
+    public void testMoveSouthDintGoOut(){
+        Rover rover = new Rover();
+        rover.turnLeft();
+        rover.turnLeft();
+        rover.move();
+        PositionInterface roverPosition = rover.getPosition();
+        Assert.assertEquals(roverPosition.getX(), 0);
+        Assert.assertEquals(roverPosition.getY(), 10);
+        Assert.assertEquals(roverPosition.getDirection(), 'S');
+    }
+
+    @Test
+    public void testMoveEast(){
+        Rover rover = new Rover();
+        rover.turnRight();
+        rover.move();
+        PositionInterface roverPosition = rover.getPosition();
+        Assert.assertEquals(roverPosition.getX(), 1);
+        Assert.assertEquals(roverPosition.getY(), 0);
+        Assert.assertEquals(roverPosition.getDirection(), 'E');
+    }
+
+    
 }
