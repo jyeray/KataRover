@@ -2,9 +2,9 @@ public class Position {
 
     private final int x;
     private final int y;
-    private char direction;
+    private CardinalPointInterface direction;
 
-    public Position(int x, int y, char direction) {
+    public Position(int x, int y, CardinalPointInterface direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
@@ -19,6 +19,10 @@ public class Position {
     }
 
     public char getDirection() {
-        return direction;
+        return direction.getDirection();
+    }
+
+    public void turnLeft() {
+        direction = direction.left();
     }
 }
