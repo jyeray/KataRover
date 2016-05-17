@@ -95,5 +95,27 @@ public class RoverTest {
         Assert.assertEquals(roverPosition.getDirection(), 'E');
     }
 
-    
+    @Test
+    public void testCommand(){
+        Rover rover = new Rover();
+        rover.read("M");
+        PositionInterface roverPosition = rover.getPosition();
+        Assert.assertEquals(roverPosition.getX(), 0);
+        Assert.assertEquals(roverPosition.getY(), 1);
+        Assert.assertEquals(roverPosition.getDirection(), 'N');
+
+        rover.read("RMMLM");
+        roverPosition = rover.getPosition();
+        Assert.assertEquals(roverPosition.getX(), 2);
+        Assert.assertEquals(roverPosition.getY(), 1);
+        Assert.assertEquals(roverPosition.getDirection(), 'N');
+
+        rover.read("RM");
+        roverPosition = rover.getPosition();
+        Assert.assertEquals(roverPosition.getX(), 3);
+        Assert.assertEquals(roverPosition.getY(), 1);
+        Assert.assertEquals(roverPosition.getDirection(), 'E');
+    }
+
+
 }
